@@ -1,7 +1,6 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 #include "degree.h"
-
 #include <string>
 
 
@@ -27,7 +26,7 @@ public:
             this->daysFinishCourses[i] = daysFinishCourses[i];
         }
         this->degree = degree;
-    }
+    };
 
     // Accessors methods declarations
     std::string getStudentID();
@@ -37,18 +36,18 @@ public:
     int getAge();
     int* getDaysFinishCourses();
     DegreeProgram getDegreeProgram();
-
+    
     // Mutators methods declarations
     void setStudentID(std::string modifystudentID);
     void setFirstName(std::string modifyfName);
     void setLastName(std::string modifylName);
     void setEmailAddress(std::string modifyemail);
     void setAge(int modifyage);
-    void setDaysToCompleteCourses(int modifydaysFinishCourses[3]);
+    void setDaysFinishCourses(int modifydaysFinishCourses[3]);
     void setDegreeProgram(DegreeProgram modifydegree);
 
     // Print student data
-    void print();
+    void print(); 
 
 };
 

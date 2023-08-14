@@ -1,6 +1,7 @@
 #include "student.h"
+#include "degree.h"
 #include <iostream>
-#include "student.h"
+#include <string>
 
 
 //Accessors methods implementations
@@ -54,9 +55,9 @@ void Student::setAge(int modifyage) {
     age = modifyage;
 }
 
-void Student::setDaysToCompleteCourses(int modifydaysToCompleteCourses[3]) {
+void Student::setDaysFinishCourses(int modifydaysFinishCourses[3]) {
     for (int i = 0; i < 3; ++i) {
-        daysFinishCourses[i] = modifydaysToCompleteCourses[i];
+        daysFinishCourses[i] = modifydaysFinishCourses[i];
     }
 }
 
