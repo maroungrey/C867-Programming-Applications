@@ -59,7 +59,8 @@ void Roster::add(std::string studentID, std::string fName, std::string lName, st
 void Roster::printAll() {
     Student::printHeader();
     for (int i = 0; i <= Roster::lastIndex; i++) {
-        std::cout << classRosterArray[i]->getStudentID(); std::cout << '\t';
+        classRosterArray[i]->print(); std::cout << '\t';
+/*      std::cout << classRosterArray[i]->getStudentID(); std::cout << '\t';
         std::cout << classRosterArray[i]->getFirstName(); std::cout << '\t';
         std::cout << classRosterArray[i]->getLastName(); std::cout << '\t';
         std::cout << classRosterArray[i]->getEmailAddress(); std::cout << '\t';
@@ -67,8 +68,9 @@ void Roster::printAll() {
         std::cout << classRosterArray[i]->getCoursesFinishDate()[0]; std::cout << '\t';
         std::cout << classRosterArray[i]->getCoursesFinishDate()[1]; std::cout << '\t';
         std::cout << classRosterArray[i]->getCoursesFinishDate()[2]; std::cout << '\t';
-        std::cout << DegreeProgramStrings[classRosterArray[i]->getDegreeProgram()] << std::endl;
+        std::cout << DegreeProgramStrings[classRosterArray[i]->getDegreeProgram()] << std::endl;*/
     }
+    std::cout << std::endl;
 }
 
 //display students with matching degree
