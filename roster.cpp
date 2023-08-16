@@ -85,7 +85,7 @@ void Roster::printInvalidEmails() {
     bool invalidEmail = false;
     for (int i = 0; i <= Roster::lastIndex; i++) {
         std::string email = (classRosterArray[i]->getEmailAddress());
-        if ((email.find("@") == std::string::npos) && (email.find(" ") != std::string::npos) && (email.find(".") == std::string::npos)) {
+        if ((email.find("@") == std::string::npos) || (email.find(" ") != std::string::npos) || (email.find(".") == std::string::npos)) {
            invalidEmail = true;
            std::cout << email << ": " << classRosterArray[i]->getFirstName() << std::endl;
         }

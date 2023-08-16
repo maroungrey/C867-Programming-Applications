@@ -33,7 +33,6 @@ int main()
 	classRoster.printInvalidEmails();
 	cout << std::endl;
 
-	//loop through classRosterArray and for each element:
 	cout << "Displaying average days: " << std::endl;
 	for (int i = 0; i < numStudents; i++)
 	{
@@ -42,7 +41,7 @@ int main()
 	cout << std::endl;
 
 
-	cout << "Displaying Students in the Software program: " << std::endl;
+	cout << "Displaying students in the Software program: " << std::endl;
 	classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE);
 	cout << std::endl;
 
