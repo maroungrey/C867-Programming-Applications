@@ -4,29 +4,53 @@
 #include <string>
 
 
-//Accessors methods implementations
+Student::Student()
+{
+    this->studentID = "";
+    this->fName = "";
+    this->lName = "";
+    this->email = "";
+    this->age = 0;
+    for (int i = 0; i < daysInCourse; ++i) this->courses[i] = 0;
+    this->degree = DegreeProgram::SECURITY;
+}
+
+
+Student::Student(std::string studentID, std::string fName, std::string lName, std::string email, int age, int courses[], DegreeProgram degree)
+{
+    this->studentID = studentID;
+    this->fName = fName;
+    this->lName = lName;
+    this->email = email;
+    this->age = age;
+    for (int i = 0; i < daysInCourse; ++i) this->courses[i] = courses[i];
+    this->degree = degree;
+}
+
+
+//Accessors
 std::string Student::getStudentID() {
-    return studentID;
+    return this->studentID;
 }
 
 std::string Student::getFirstName() {
-    return fName;
+    return this->fName;
 }
 
 std::string Student::getLastName() {
-    return lName;
+    return this->lName;
 }
 
 std::string Student::getEmailAddress() {
-    return email;
+    return this->email;
 }
 
 int Student::getAge() {
-    return age;
+    return this->age;
 }
 
-int* Student::getDaysFinishCourses() {
-    return daysFinishCourses;
+int* Student::getCoursesFinishDate() {
+    return this->courses;
 }
 
 DegreeProgram Student::getDegreeProgram() {
@@ -34,48 +58,52 @@ DegreeProgram Student::getDegreeProgram() {
 }
 
 
-// Mutators method implementations
-void Student::setStudentID(std::string modifystudentID) {
-    studentID = modifystudentID;
+// Mutators
+void Student::setStudentID(std::string ID) {
+    this->studentID = ID;
 }
 
-void Student::setFirstName(std::string modifyfName) {
-    fName = modifyfName;
+void Student::setFirstName(std::string fName) {
+    this->fName = fName;
 }
 
-void Student::setLastName(std::string modifylName) {
-    lName = modifylName;
+void Student::setLastName(std::string lName) {
+    this->lName = lName;
 }
 
-void Student::setEmailAddress(std::string modifyemail) {
-    email = modifyemail;
+void Student::setEmailAddress(std::string email) {
+    this->email = email;
 }
 
-void Student::setAge(int modifyage) {
-    age = modifyage;
+void Student::setAge(int age) {
+    this->age = age;
 }
 
-void Student::setDaysFinishCourses(int modifydaysFinishCourses[3]) {
-    for (int i = 0; i < 3; ++i) {
-        daysFinishCourses[i] = modifydaysFinishCourses[i];
-    }
+void Student::setCoursesFinishDate(int courses[]) {
+    for (int i = 0; i < daysInCourse; i++) this->courses[i] = courses[i];
 }
 
-void Student::setDegreeProgram(DegreeProgram modifydegree) {
-    degree = modifydegree;
+void Student::setDegreeProgram(DegreeProgram degree) {
+    degree = degree;
 }
 
 // Print student data
-void Student::print() {
-    std::cout << "Student ID: " << studentID << std::endl;
-    std::cout << "First Name: " << fName << std::endl;
-    std::cout << "Last Name: " << lName << std::endl;
-    std::cout << "Email Address: " << email << std::endl;
-    std::cout << "Age: " << age << std::endl;
-    std::cout << "Days to Complete Courses: ";
-    for (int i = 0; i < 3; ++i) {
-        std::cout << daysFinishCourses[i] << " ";
-    }
-    std::cout << std::endl;
-    std::cout << "Degree Program: " << degree << std::endl;
+void Student::printHeader() {
+    std::cout << "Output format: ID|Title|Author|Prices|Type\n";
 }
+
+
+void Student::print() {
+    std::cout << this->getStudentID() << '\t';
+    std::cout << this->getFirstName() << '\t';
+    std::cout << this->getLastName() << '\t';
+    std::cout << this->getEmailAddress() << '\t';
+    std::cout << this->getAge() << '\t';
+    std::cout << this->getCoursesFinishDate()[0] << ',';
+    std::cout << this->getCoursesFinishDate()[1] << ',';
+    std::cout << this->getCoursesFinishDate()[2] << '\t';
+    std::cout << DegreeProgramStrings[this->getDegreeProgram()] << '\n';
+}
+
+//destructor
+Student::~Student() {}

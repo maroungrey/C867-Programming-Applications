@@ -1,55 +1,47 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+#pragma once
 #include "degree.h"
+#include <iostream>
+#include <iomanip>
 #include <string>
 
 
 class Student {
+public:
+    const static int daysInCourse = 3;
 private:
 	std::string studentID;
 	std::string fName;
 	std::string lName;
 	std::string email;
 	int age;
-	int daysFinishCourses[3];
+	int courses[daysInCourse];
 	DegreeProgram degree;
-
 public:
     //Constructor declaration
-    Student(std::string studentID, std::string fName, std::string lName, std::string email, int  age, int daysFinishCourses[3], DegreeProgram degree) {
-        this->studentID = studentID;
-        this->fName = fName;
-        this->lName = lName;
-        this->email = email;
-        this->age = age;
-        for (int i = 0; i < 3; ++i) {
-            this->daysFinishCourses[i] = daysFinishCourses[i];
-        }
-        this->degree = degree;
-    };
+    Student();
+    Student(std::string studentID, std::string fName, std::string lName, std::string email, int age, int courses[], DegreeProgram degree);
+    ~Student();
 
-    // Accessors methods declarations
+    // Accessors
     std::string getStudentID();
     std::string getFirstName();
     std::string getLastName();
     std::string getEmailAddress();
     int getAge();
-    int* getDaysFinishCourses();
+    int* getCoursesFinishDate();
     DegreeProgram getDegreeProgram();
     
-    // Mutators methods declarations
-    void setStudentID(std::string modifystudentID);
-    void setFirstName(std::string modifyfName);
-    void setLastName(std::string modifylName);
-    void setEmailAddress(std::string modifyemail);
-    void setAge(int modifyage);
-    void setDaysFinishCourses(int modifydaysFinishCourses[3]);
-    void setDegreeProgram(DegreeProgram modifydegree);
+    // Mutators
+    void setStudentID(std::string ID);
+    void setFirstName(std::string fName);
+    void setLastName(std::string lName);
+    void setEmailAddress(std::string email);
+    void setAge(int age);
+    void setCoursesFinishDate(int courses[]);
+    void setDegreeProgram(DegreeProgram degree);
 
-    // Print student data
+    static void printHeader();
+
     void print(); 
 
 };
-
-
-#endif
